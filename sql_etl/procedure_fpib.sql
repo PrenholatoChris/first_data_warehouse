@@ -60,13 +60,13 @@ BEGIN
 		(select idmunicipio from dmunicipio 
 			where dmunicipio.municipio=pm.Nome_do_Municipio
 			  and dmunicipio.idUF = (select idUF from dUF where duf.UF = pm.Sigla_da_Unidade_da_Federacao)) as idmunicipio,
-		pm.Valor_adicionado_bruto_da_Agropecuaria as primario,
-		pm.Valor_adicionado_bruto_da_Industria as secundario,
-		pm.Valor_adicionado_bruto_dos_Servicos as terciario,
-		pm.`Valor_adicionado_bruto_da_Administracao._defesa` as outros,
-		pm.Valor_adicionado_bruto_total as adicionado_total,
-		pm.`Impostos._liquidos_de_subsidios` as impostos,
-		pm.Produto_Interno_Bruto as pib,
+		pm.Valor_adicionado_bruto_da_Agropecuaria*1000 as primario,
+		pm.Valor_adicionado_bruto_da_Industria*1000 as secundario,
+		pm.Valor_adicionado_bruto_dos_Servicos*1000 as terciario,
+		pm.`Valor_adicionado_bruto_da_Administracao._defesa`*1000 as outros,
+		pm.Valor_adicionado_bruto_total*1000 as adicionado_total,
+		pm.`Impostos._liquidos_de_subsidios`*1000 as impostos,
+		pm.Produto_Interno_Bruto*1000 as pib,
 		pm.Produto_Interno_Bruto_per_capita as pib_per_capita
 	FROM pib_municipios pm);
 	

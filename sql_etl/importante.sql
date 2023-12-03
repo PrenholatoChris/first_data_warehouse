@@ -38,7 +38,7 @@ fPibMunicipios
 	ValorPibPerCapita
     */
 
-drop table fpibmunicipios;
+
 drop table fimpostosestaduais;
 drop table dMunicipio;
 drop table dUF;
@@ -47,6 +47,7 @@ drop table dtempo;
 CREATE TABLE dTempo( idTempo int auto_increment, Ano int, primary key(idTempo));
 CREATE TABLE dUF( idUF int auto_increment, UF text, regiao text, estado text, primary key(idUF));
 CREATE TABLE dMunicipio( idMunicipio int auto_increment, idUF int, municipio text, primary key(idMunicipio), foreign key (idUF) references dUF(idUF));
+drop table fpib;
 CREATE TABLE fPib ( 
     idTempo int,
 	idUF int, idMunicipio int,
